@@ -1,0 +1,90 @@
+﻿<Page
+    x:Class="TheSplitView.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TheSplitView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <SplitView x:ConnectionId='1' x:Name="LayoutRoot" IsPaneOpen="True"
+                   DisplayMode="CompactInline">
+
+            <SplitView.Pane>
+                <Grid Background="{StaticResource LightThemeBrush01}">
+                    <StackPanel Margin="0,48,0,0">
+                        <RadioButton x:ConnectionId='3' x:Name="TextButton" Style="{StaticResource SplitViewRadio}">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Library"
+                                            Margin="0,0,18,0"></SymbolIcon>
+                                <TextBlock Text="This is an awesome text"></TextBlock>
+                            </StackPanel>
+                        </RadioButton>
+
+                        <RadioButton x:ConnectionId='4' x:Name="MapButton"
+                                     Style="{StaticResource SplitViewRadio}">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Map"
+                                            Margin="0,0,18,0"></SymbolIcon>
+                                <TextBlock Text="The map of truth"></TextBlock>
+                            </StackPanel>
+                        </RadioButton>
+                    </StackPanel>
+                </Grid>
+                
+                      
+            </SplitView.Pane>
+            <SplitView.Content>
+                <RelativePanel>
+                <Grid x:ConnectionId='5' x:Name="ClientStackPanel"
+                      Background="{StaticResource BlueBrush}"
+                      RelativePanel.AlignRightWithPanel="True"
+                      RelativePanel.AlignLeftWithPanel="True">
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Left">
+                        <Image Height="24"
+                               Margin="8,0,0,0"
+                               Source="Assets/logo_splitview.png" />
+                    </StackPanel>
+                </Grid>
+
+                    <Frame x:ConnectionId='6' x:Name="MainFrame"
+                           RelativePanel.Below="ClientStackPanel"
+                           RelativePanel.AlignBottomWithPanel="True"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.AlignRightWithPanel="True" />
+                    
+                </RelativePanel>
+            </SplitView.Content>
+        </SplitView>
+
+        <Button x:ConnectionId='2' x:Name="HamburgerButton"
+                VerticalAlignment="Top"
+                Background="{StaticResource LightThemeBrush01}"
+                BorderBrush="{x:Null}"
+                Width="48"
+                Height="48"
+                Margin="0,0,0,12"
+                                             >
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Rectangle Height="2"
+                           Width="20"
+                           Fill="{StaticResource GreyBrush02}"
+                           Margin="0,4,0,4" />
+                <Rectangle Height="2"
+                           Width="20"
+                           Fill="{StaticResource GreyBrush02}"
+                           Margin="0,0,0,4" />
+                <Rectangle Height="2"
+                           Width="20"
+                           Fill="{StaticResource GreyBrush02}"
+                           Margin="0,0,0,4" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>
+

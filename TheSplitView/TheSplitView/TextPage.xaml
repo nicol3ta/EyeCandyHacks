@@ -1,0 +1,72 @@
+﻿<Page x:Class="TheSplitView.TextPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:TheSplitView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="mainGrid" Margin="12,12,12,0"
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowSizes">
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="scrollViewer.(Grid.ColumnSpan)"
+                                Value="2" />
+                        <Setter Target="overflowContainer.Visibility"
+                                Value="Collapsed" />
+                        <Setter Target="textContainer.Height"
+                                Value="Auto" />
+                        <Setter Target="scrollViewer.IsEnabled"
+                                Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="MediumState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="760" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="scrollViewer.IsEnabled"
+                                Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ScrollViewer x:Name="scrollViewer">
+            <RichTextBlock  x:Name="textContainer"
+                            Grid.ColumnSpan="1"
+                            OverflowContentTarget="{Binding ElementName=overflowContainer}"
+                            FontWeight="Light"
+                            TextAlignment="Justify">
+                <RichTextBlock.Blocks>
+                    <Paragraph x:Name="Title"
+                               Foreground="Black"
+                               FontWeight="Bold"
+                               TextAlignment="Center"
+                               FontSize="20">Make Your App Look Great On any Screen Size</Paragraph>
+                    <Paragraph Margin="10,20">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dui tortor, varius et nulla a, finibus tristique erat. Aliquam quis tortor laoreet, congue eros a, malesuada nisl. Curabitur quis purus id mauris egestas scelerisque at quis sapien. Proin eleifend, dui id varius maximus, felis libero semper purus, in suscipit turpis elit in dui. Quisque condimentum est sit amet nulla venenatis, vitae aliquam nunc congue. Mauris odio erat, volutpat a massa quis, aliquet pulvinar libero. Maecenas sed nibh quis orci convallis facilisis. Vivamus id sollicitudin massa.</Paragraph>
+                    <Paragraph Margin="10,20">Nunc condimentum justo ut nulla dapibus, et ullamcorper lectus commodo. Phasellus faucibus mollis magna, id ultricies eros efficitur id. Vivamus mi sem, convallis eu lacus non, pretium sodales diam. Proin viverra laoreet tristique. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis in magna tempus, pretium mi id, convallis erat. Nam ornare nisl massa, a tristique urna eleifend vitae. Suspendisse nibh lectus, vulputate a vulputate eu, iaculis id ligula. Phasellus nec neque vitae felis tincidunt mollis sagittis id justo. Proin orci dolor, tempus at purus quis, efficitur facilisis nulla. Ut condimentum orci sed eros feugiat malesuada vitae quis metus. Donec nibh ex, faucibus eget pellentesque et, elementum sed libero. Sed eget finibus lorem, eu consequat felis. Integer in augue sem. Sed in euismod erat, sed aliquam lacus.</Paragraph>
+                    <Paragraph Margin="10,20">Mauris ut interdum nisl. Morbi tempus sollicitudin pharetra. Pellentesque condimentum nulla ut leo tincidunt laoreet. Pellentesque ut purus cursus, venenatis sapien vel, molestie orci. Praesent convallis dapibus tortor, id elementum ante porttitor ut. Aliquam viverra cursus sem, ut pulvinar tortor. Cras scelerisque nunc at ligula blandit, eget semper mauris rhoncus. Phasellus bibendum fringilla nibh, eget euismod dolor iaculis facilisis. Proin sit amet arcu sit amet dui fermentum convallis ut vitae ligula. Integer luctus suscipit erat, ac pellentesque lectus egestas quis. Proin sed turpis ipsum. Mauris euismod, diam blandit lacinia porttitor, tortor mi sagittis mi, non ornare dui nibh vitae ex. Vestibulum pretium diam vitae mi ultrices auctor nec eu justo. Nam varius sem id nisi semper, vel feugiat risus mollis. Vestibulum sed sodales ex. Suspendisse rhoncus dolor non dui vulputate finibus.</Paragraph>
+                    <Paragraph Margin="10,20">Curabitur odio magna, dapibus at rhoncus eget, sollicitudin suscipit risus. Morbi eleifend sapien aliquet nisi fringilla tincidunt. Praesent imperdiet eros ut ultricies scelerisque. In auctor lacus id justo lobortis, vitae venenatis arcu ornare. Curabitur odio nibh, ultrices et dignissim sed, placerat sit amet urna. Curabitur ipsum nisl, finibus eu leo sit amet, congue suscipit dolor. Ut consequat faucibus quam, mattis venenatis ligula elementum et.</Paragraph>
+                    <Paragraph Margin="10,20">Fusce vel sapien mattis, scelerisque purus eget, venenatis ligula. Cras malesuada felis pulvinar metus imperdiet, a posuere libero finibus. Curabitur sagittis eu sem ut varius. Pellentesque tincidunt convallis auctor. Duis sit amet pretium mauris. Nunc vel sem at sapien consequat fringilla. Morbi nec ante libero.</Paragraph>
+                    <Paragraph Margin="10,20">Donec bibendum nisl in ante efficitur tincidunt. Cras vitae orci urna. Quisque aliquam varius turpis vel viverra. Proin mattis ornare suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer placerat euismod turpis non convallis. Donec ornare ex id augue ornare auctor.</Paragraph>
+                </RichTextBlock.Blocks>
+            </RichTextBlock>
+        </ScrollViewer>
+        <RichTextBlockOverflow x:Name="overflowContainer"
+                               Grid.Column="1">
+
+        </RichTextBlockOverflow>
+    </Grid>
+</Page>
