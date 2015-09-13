@@ -13,7 +13,7 @@
         <Maps:MapControl x:Name="MapControl1"
                          ZoomInteractionMode="GestureAndControl"
                          TiltInteractionMode="GestureAndControl"
-                         MapServiceToken="sjnBhMeP9zE67Qca9ElD~XHWrADhApRJaVSEYRYzk3g~Akz2qtxqOuKLfRqkTAfqx3h6Ct6H3FFHzJWewZRG_fGXSRj1hBqW64AJoVJUSTtd" />
+                         MapServiceToken="InsertYourMapTokenHere" />
 
     </Grid>
 </Page>
